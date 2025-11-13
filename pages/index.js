@@ -1,26 +1,22 @@
-import StoreHeading from '@/components/StoreHeading'
-import ProductListings from '@/components/ProductListings'
-import { getAllProducts } from '@/lib/supabase'
+// pages/index.js
+import HeroSection from '@/components/HeroSection'
+import EndlessScrolling from '@/components/EndlessScrolling'
+import Redefine from '@/components/Redefine'
+import FAQSection from '@/components/FAQs'
+import DownloadApp from '@/components/DownloadApp'
+import SubscriptionPricing from '@/components/SubscriptionPricing'
 
-function IndexPage({ products }) {
-  return (
-    <div className="mx-auto max-w-6xl">
-      <StoreHeading />
-      <ProductListings products={products} />      
-    </div>
-  )
-}
-
-// Only keep getStaticProps for the homepage
-export async function getStaticProps() {
-  const products = await getAllProducts()
-
-  return {
-    props: {
-      products
-    },
-    revalidate: 60 // Optional: ISR every 60 seconds
+function IndexPage() {
+    return (
+      <div className="">
+        <section id="home"><HeroSection /></section>
+        <section id="scrolling"><EndlessScrolling /></section>
+        <section id="specifik"><Redefine /></section>
+        <section id="pricing"><SubscriptionPricing /></section>
+        <section id="faq"><FAQSection /></section>
+        <section id="download"><DownloadApp /></section>
+      </div>
+    )
   }
-}
 
 export default IndexPage

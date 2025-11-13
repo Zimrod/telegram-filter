@@ -1,3 +1,4 @@
+// components/Layout.js
 import { CartProvider } from '@/context/Store'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'

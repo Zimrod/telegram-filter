@@ -4,9 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.triangle {
-
-}
+/* .triangle {
+} */
 
 .triangle::before {
   content: '';
@@ -16,4 +15,8 @@
   left: 0em;
   border: 1em solid transparent;
   border-left-color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
 }

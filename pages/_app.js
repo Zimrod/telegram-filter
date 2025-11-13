@@ -2,6 +2,7 @@ import Layout from '@/components/Layout'
 import SEO from '@/components/SEO'
 import '@/styles/globals.css'
 import ChatbotWidget from "@/components/ChatbotWidget";
+import BackToTop from "@/components/BackToTop";
 
 function MyApp({ Component, pageProps }) {
 
@@ -11,6 +12,7 @@ function MyApp({ Component, pageProps }) {
         title={process.env.siteTitle}
       />
       <Component {...pageProps} />
+      <BackToTop />
       <ChatbotWidget />
     </Layout>
   )
