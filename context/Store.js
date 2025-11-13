@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { createShopifyCheckout, updateShopifyCheckout, setLocalData, saveLocalData } from '@/utils/helpers'
+import { setLocalData, saveLocalData } from '@/utils/helpers'
 
 const CartContext = createContext()
 const AddToCartContext = createContext()
@@ -49,10 +49,10 @@ export function CartProvider({ children }) {
         newItem
       ])
 
-      const response = await createShopifyCheckout(newItem)
-      setCheckoutId(response.id)
-      setCheckoutUrl(response.webUrl)
-      saveLocalData(newItem, response.id, response.webUrl)
+    //   const response = await createShopifyCheckout(newItem)
+    //   setCheckoutId(response.id)
+    //   setCheckoutUrl(response.webUrl)
+    //   saveLocalData(newItem, response.id, response.webUrl)
 
     } else {
       let newCart = [...cart]
@@ -74,7 +74,7 @@ export function CartProvider({ children }) {
       }
 
       setCart(newCartWithItem)
-      await updateShopifyCheckout(newCartWithItem, checkoutId)
+    //   await updateShopifyCheckout(newCartWithItem, checkoutId)
       saveLocalData(newCartWithItem, checkoutId, checkoutUrl)
     }
     setisLoading(false)
@@ -97,7 +97,7 @@ export function CartProvider({ children }) {
     newCart = newCart.filter(i => i.variantQuantity !== 0)
     setCart(newCart)
 
-    await updateShopifyCheckout(newCart, checkoutId)
+    // await updateShopifyCheckout(newCart, checkoutId)
     saveLocalData(newCart, checkoutId, checkoutUrl)
     setisLoading(false)
   }
